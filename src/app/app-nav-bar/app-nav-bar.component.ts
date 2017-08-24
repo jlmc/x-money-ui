@@ -6,6 +6,9 @@ import {Component} from '@angular/core';
   styleUrls: ['./app-nav-bar.component.css']
 })
 export class AppNavBarComponent {
+  showMenu = false;
 
-
+  toggleMenu() {
+    this.showMenu = !this.showMenu;
+  }
 }
