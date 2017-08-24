@@ -28,7 +28,9 @@
   <div class="ui-g">
     <div class="ui-g-12">
 
-      <p-dataTable [value]="activities" [paginator]="true" [rows]="10">
+      <p-dataTable [value]="activities"
+                   [paginator]="true" [rows]="10"
+                   [responsive]="true">
         <p-column field="code"  header="Code"></p-column>
         <p-column field="description"  header="Description"></p-column>
         <p-column field="observation"  header="Observation"></p-column>
@@ -45,8 +47,8 @@
 
         <p-column styleClass="col-actions">
           <ng-template pTemplate="body">
-            <a pButton icon="fa-pencil"></a>
-            <button pButton icon="fa-trash"></button>
+            <a pButton icon="fa-pencil" pTooltip="Edit" tooltipPosition="top"></a>
+            <button pButton icon="fa-trash" pTooltip="Remove" tooltipPosition="bottom"></button>
           </ng-template>
         </p-column>
 

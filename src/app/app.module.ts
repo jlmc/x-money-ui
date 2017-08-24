@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {TabViewModule} from 'primeng/primeng';
+import {TabViewModule, TooltipModule} from 'primeng/primeng';
 
 // acording the PrimeNG documentation it could be better import the compoments one by one
 import { InputTextModule } from 'primeng/components/inputtext/inputtext';
@@ -20,6 +20,7 @@ import { AppComponent } from './app.component';
     , ButtonModule
     , DataTableModule
     , SharedModule
+    , TooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
