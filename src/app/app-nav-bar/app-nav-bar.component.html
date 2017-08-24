@@ -2,7 +2,7 @@
   <div class="container">
     <div class="ui-g">
       <div class="ui-g-12">
-        <a href="javascript:;" class="nav-bar-toggle">
+        <a href="javascript:;" class="nav-bar-toggle" (click)="toggleMenu()">
           <i class="fa fa-bars"></i>
         </a>
       </div>
@@ -10,4 +10,13 @@
     </div>
 
   </div>
+
+  <ul class="nav-bar-menu" [hidden]="!showMenu">
+    <li class="nav-bar-user">Cristiano Ronaldo</li>
+    <li class="nav-bar-menuitem"><a href="#">Activities</a></li>
+    <li class="nav-bar-menuitem"><a href="#">Persons</a></li>
+    <li class="nav-bar-menuitem"><a href="#">Logout</a></li>
+  </ul>
+
+
 </nav>
