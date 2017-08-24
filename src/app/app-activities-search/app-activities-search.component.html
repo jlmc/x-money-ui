@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="ui-g">
+
+    <div class="ui-g-12">
+      <h1>Activities</h1>
+    </div>
+
+    <div class="ui-g-12 ui-fluid">
+      <label>Descrição</label>
+      <input pInputText type="text">
+    </div>
+
+    <div class="ui-g-12">
+      <label style="display: block">Due date</label>
+      <input pInputText type="text" style="width: 95px">
+
+      <label>to</label>
+      <input pInputText type="text" style="width: 95px">
+    </div>
+
+    <div class="ui-g-12">
+      <button pButton type="submit" label="Search"></button>
+    </div>
+
+  </div>
+
+
+  <div class="ui-g">
+    <div class="ui-g-12">
+
+      <p-dataTable [value]="activities"
+                   [paginator]="true" [rows]="10"
+                   [responsive]="true">
+        <p-column field="code"  header="Code"></p-column>
+        <p-column field="description"  header="Description"></p-column>
+        <p-column field="observation"  header="Observation"></p-column>
+        <p-column field="payday"  header="Payday" styleClass="col-date"></p-column>
+        <!--<p-column field="value" header="Value" styleClass="cal-value"></p-column>-->
+        <p-column field="person.name" header="Person"></p-column>
+
+
+        <p-column field="value" header="Value" styleClass="cal-value">
+          <ng-template let-lanc="rowData" pTemplate="body">
+            <span styleClass="cal-value" [style.color]="lanc.type === 'EXPENSE' ? 'red' : 'blue'">{{lanc.value}}</span>
+          </ng-template>
+        </p-column>
+
+        <p-column styleClass="col-actions">
+          <ng-template pTemplate="body">
+            <a pButton icon="fa-pencil" pTooltip="Edit" tooltipPosition="top"></a>
+            <button pButton icon="fa-trash" pTooltip="Remove" tooltipPosition="bottom"></button>
+          </ng-template>
+        </p-column>
+
+
+
+      </p-dataTable>
+
+    </div>
+  </div>
+
+  <div class="ui-g-12">
+    <a pButton label="New Activity"></a>
+  </div>
+
+</div>

@@ -8,10 +8,14 @@ import { ButtonModule } from 'primeng/components/button/button';
 import {DataTableModule, SharedModule} from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
+import { AppActivitiesSearchComponent } from './app-activities-search/app-activities-search.component';
+import { AppNavBarComponent } from './app-nav-bar/app-nav-bar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppActivitiesSearchComponent,
+    AppNavBarComponent
   ],
   imports: [
     BrowserModule
