@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="ui-g">
+
+    <div class="ui-g-12">
+      <h1>Persons</h1>
+    </div>
+
+    <div class="ui-g-12 ui-fluid">
+      <label>Name</label>
+      <input pInputText type="text">
+    </div>
+
+  </div>
+<!--
+  code: '4',
+  name: 'Luisão',
+  active: true,
+  address: {
+  city: 'Lisbon',
+  street: 'estadio da Luz',
+  zipCode: '1111-111'
+  }
+
+  -->
+  <div class="ui-g">
+    <div class="ui-g-12">
+
+      <p-dataTable [value]="persons"
+                   [paginator]="true" [rows]="10"
+                   [responsive]="true">
+        <p-column field="code"  header="Code" styleClass="col-code"></p-column>
+        <p-column field="name"  header="Name"></p-column>
+        <p-column field="active" header="Active">
+          <ng-template let-lanc="rowData" pTemplate="body">
+            <span>
+              {{lanc.active ? 'Active' : 'Inactive'}}
+            </span>
+          </ng-template>
+        </p-column>
+        <p-column field="address" header="Address">
+          <ng-template let-lanc="rowData" pTemplate="body">
+            <span styleClass="cal-value">
+              {{lanc.address.city + ' ' + lanc.address.street}}
+            </span>
+          </ng-template>
+        </p-column>
+
+
+        <p-column styleClass="col-actions">
+          <ng-template pTemplate="body">
+            <a pButton icon="fa-pencil" pTooltip="Edit" tooltipPosition="top"></a>
+            <button pButton icon="fa-trash" pTooltip="Remove" tooltipPosition="bottom"></button>
+          </ng-template>
+        </p-column>
+
+      </p-dataTable>
+
+    </div>
+  </div>
+
+  <div class="ui-g-12">
+    <a pButton label="New Person"></a>
+  </div>
+
+</div>
