@@ -35,3 +35,8 @@ label {
   text-align: center;
   width: 90px;
 }
+
+.col-code {
+  width: 90px;
+  text-align: right;
+}
