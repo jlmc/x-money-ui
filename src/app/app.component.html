@@ -28,7 +28,7 @@
   <div class="ui-g">
     <div class="ui-g-12">
 
-      <p-dataTable [value]="activities">
+      <p-dataTable [value]="activities" [paginator]="true" [rows]="10">
         <p-column field="code"  header="Code"></p-column>
         <p-column field="description"  header="Description"></p-column>
         <p-column field="observation"  header="Observation"></p-column>
