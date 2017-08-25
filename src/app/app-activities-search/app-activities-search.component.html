@@ -34,14 +34,20 @@
         <p-column field="code"  header="Code" styleClass="col-code"></p-column>
         <p-column field="description"  header="Description"></p-column>
         <p-column field="observation"  header="Observation"></p-column>
-        <p-column field="payday"  header="Payday" styleClass="col-date"></p-column>
+
+        <p-column field="payday"  header="Payday" styleClass="col-date">
+          <ng-template let-lanc="rowData" pTemplate="body">
+            {{lanc.payday | date:'dd/MM/y' }}
+          </ng-template>
+        </p-column>
+
         <!--<p-column field="value" header="Value" styleClass="cal-value"></p-column>-->
         <p-column field="person.name" header="Person"></p-column>
 
 
         <p-column field="value" header="Value" styleClass="cal-value">
           <ng-template let-lanc="rowData" pTemplate="body">
-            <span styleClass="cal-value" [style.color]="lanc.type === 'EXPENSE' ? 'red' : 'blue'">{{lanc.value}}</span>
+            <span styleClass="cal-value" [style.color]="lanc.type === 'EXPENSE' ? 'red' : 'blue'">{{lanc.value | currency:'EUR':true:'4.2-2'}}</span>
           </ng-template>
         </p-column>
 
