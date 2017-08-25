@@ -12,8 +12,8 @@ export class AppActivitiesSearchComponent {
       code: 1234,
       description: 'abcde',
       observation: 'this is dummmt',
-      payday: '2017-08-15',
-      maturity: '2016-08-31',
+      payday: new Date(2017, 8, 15),
+      maturity: new Date(2017, 8, 15),
       value: 4567.98,
       type: 'EXPENSE',
       category: {
@@ -27,8 +27,8 @@ export class AppActivitiesSearchComponent {
       code: 3456,
       description: 'tipo gtyu',
       observation: 'this is dummmt',
-      payday: '2017-08-15',
-      maturity: '2016-08-31',
+      payday: new Date('2017/12/01'),
+      maturity: new Date(2017, 1, 1),
       value: 4567.98,
       type: 'EXPENSE',
       category: {
