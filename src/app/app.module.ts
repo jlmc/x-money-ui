@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {TabViewModule, TooltipModule} from 'primeng/primeng';
+import {InputTextareaModule, TabViewModule, TooltipModule} from 'primeng/primeng';
 
 // acording the PrimeNG documentation it could be better import the compoments one by one
 import { InputTextModule } from 'primeng/components/inputtext/inputtext';
@@ -11,13 +11,15 @@ import { AppComponent } from './app.component';
 import { AppActivitiesSearchComponent } from './app-activities-search/app-activities-search.component';
 import { AppNavBarComponent } from './app-nav-bar/app-nav-bar.component';
 import { AppPersonsSearchComponent } from './app-persons-search/app-persons-search.component';
+import { AppActivityRegisterComponent } from './app-activity-register/app-activity-register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppActivitiesSearchComponent,
     AppNavBarComponent,
-    AppPersonsSearchComponent
+    AppPersonsSearchComponent,
+    AppActivityRegisterComponent
   ],
   imports: [
     BrowserModule
@@ -27,6 +29,7 @@ import { AppPersonsSearchComponent } from './app-persons-search/app-persons-sear
     , DataTableModule
     , SharedModule
     , TooltipModule
+    , InputTextareaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
