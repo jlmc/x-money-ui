@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {
   CalendarModule,
   DataTableModule,
+  DropdownModule,
   InputTextareaModule,
   SelectButtonModule,
   SharedModule,
@@ -40,6 +41,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     , CalendarModule
     , BrowserAnimationsModule
     , SelectButtonModule
+    , DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

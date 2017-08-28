@@ -41,12 +41,21 @@
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Category</label>
-        <input pInputText type="text">
+
+        <p-dropdown [options]="categories" placeholder="Select one..."
+                    [autoWidth]="false" #mycategody></p-dropdown>
+
+       <!-- <input pInputText type="text">-->
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Person</label>
-        <input pInputText type="text">
+
+        <p-dropdown [options]="persons" placeholder="Select one..."
+                    [autoWidth]="false" [filter]="true" #myPerson></p-dropdown>
+
+        <!--
+        <input pInputText type="text">-->
       </div>
 
       <div class="ui-g-12 ui-fluid">
