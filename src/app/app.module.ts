@@ -20,6 +20,8 @@ import {AppNavBarComponent} from './app-nav-bar/app-nav-bar.component';
 import {AppPersonsSearchComponent} from './app-persons-search/app-persons-search.component';
 import {AppActivityRegisterComponent} from './app-activity-register/app-activity-register.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CurrencyMaskModule} from 'ng2-currency-mask';
+import { AppPersonRegisterComponent } from './app-person-register/app-person-register.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AppActivitiesSearchComponent,
     AppNavBarComponent,
     AppPersonsSearchComponent,
-    AppActivityRegisterComponent
+    AppActivityRegisterComponent,
+    AppPersonRegisterComponent
   ],
   imports: [
     BrowserModule
@@ -42,6 +45,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     , BrowserAnimationsModule
     , SelectButtonModule
     , DropdownModule
+    , CurrencyMaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]

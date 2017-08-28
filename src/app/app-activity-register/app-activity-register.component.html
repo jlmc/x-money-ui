@@ -36,7 +36,9 @@
 
       <div class="ui-g-12 ui-md-3 ui-fluid">
         <label>Value</label>
-        <input pInputText type="text" placeholder="0,00">
+        <input pInputText type="text" placeholder="0,00"
+               [options]="{ prefix: '€ ', thousands: '.', decimal: ',', allowNegative: false }"
+               currencyMask>
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
