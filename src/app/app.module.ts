@@ -4,6 +4,7 @@ import {
   CalendarModule,
   DataTableModule,
   InputTextareaModule,
+  SelectButtonModule,
   SharedModule,
   TabViewModule,
   TooltipModule
@@ -38,6 +39,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     , InputTextareaModule
     , CalendarModule
     , BrowserAnimationsModule
+    , SelectButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
