@@ -10,6 +10,8 @@ export class AppPersonRegisterComponent {
 
   status: SelectItem[];
 
+  val: string;
+
   constructor() {
     this.status = [];
     this.status.push({label: 'Active', value: true});
