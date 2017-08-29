@@ -21,7 +21,7 @@ import {AppPersonsSearchComponent} from './app-persons-search/app-persons-search
 import {AppActivityRegisterComponent} from './app-activity-register/app-activity-register.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CurrencyMaskModule} from 'ng2-currency-mask';
-import { AppPersonRegisterComponent } from './app-person-register/app-person-register.component';
+import {AppPersonRegisterComponent} from './app-person-register/app-person-register.component';
 
 @NgModule({
   declarations: [

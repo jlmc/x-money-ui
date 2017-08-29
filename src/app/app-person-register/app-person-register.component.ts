@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+import {SelectItem} from "primeng/primeng";
 
 @Component({
   selector: 'app-app-person-register',
   templateUrl: './app-person-register.component.html',
   styleUrls: ['./app-person-register.component.css']
 })
-export class AppPersonRegisterComponent implements OnInit {
+export class AppPersonRegisterComponent {
 
-  constructor() { }
+  status: SelectItem[];
 
-  ngOnInit() {
+  constructor() {
+    this.status = [];
+    this.status.push({label: 'Active', value: true});
+    this.status.push({label: 'Inactive', value: false});
   }
 
 }
