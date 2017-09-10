@@ -1,4 +1,3 @@
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {
   CalendarModule,
@@ -15,34 +14,20 @@ import {
 import {InputTextModule} from 'primeng/components/inputtext/inputtext';
 import {ButtonModule} from 'primeng/components/button/button';
 
-import {AppComponent} from './app.component';
-import {AppNavBarComponent} from './app-nav-bar/app-nav-bar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CurrencyMaskModule} from 'ng2-currency-mask';
 import {FormsModule} from '@angular/forms';
-import {MessageComponent} from './message/message.component';
-import {PersonsModule} from './persons/persons.module';
-import {ActivitiesModule} from './activities/activities.module';
+import {CommonModule} from '@angular/common';
+import {AppPersonGridComponent} from "./app-person-grid/app-person-grid.component";
+import {AppPersonRegisterComponent} from "./app-person-register/app-person-register.component";
+import {AppPersonsSearchComponent} from "./app-persons-search/app-persons-search.component";
 
-/*
-AppActivitiesSearchComponent,
-  AppPersonsSearchComponent,
-  AppActivityRegisterComponent,
-  AppPersonRegisterComponent,
-  AppPersonGridComponent,
-*/
+
 @NgModule({
-  declarations: [
-    AppComponent,
-
-
-
-    AppNavBarComponent,
-    MessageComponent
-  ],
   imports: [
-    BrowserModule
-    , FormsModule
+    CommonModule,
+    FormsModule,
+    SharedModule
     , TabViewModule
     , InputTextModule
     , ButtonModule
@@ -57,10 +42,9 @@ AppActivitiesSearchComponent,
     , InputMaskModule
     , CurrencyMaskModule
 
-    , PersonsModule
-    , ActivitiesModule
+
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [AppPersonGridComponent, AppPersonRegisterComponent, AppPersonsSearchComponent],
+  exports: [AppPersonsSearchComponent, AppPersonRegisterComponent]
 })
-export class AppModule { }
+export class PersonsModule { }

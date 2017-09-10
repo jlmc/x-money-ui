@@ -24,8 +24,8 @@
                     name="maturity" ngModel #maturity="ngModel" required></p-calendar>
         <!--
         <input pInputText type="text">
-        -->
         <app-message [control]="maturity" error="required" text="The maturity date should be entered."></app-message>
+        -->
 
       </div>
 
@@ -43,7 +43,7 @@
 
         <input pInputText type="text" name="drscription"
                ngModel #description="ngModel" required minlength="5">
-
+<!--
         <app-message [control]="description"
                      error="required"
                      text="The description is required"></app-message>
@@ -51,7 +51,7 @@
         <app-message [control]="description"
                 error="minlength"
                 text="Minimum of {{description.errors?.minlength?.requiredLength }} characters, you only wrote {{description.errors?.minlength?.actualLength}}"></app-message>
-
+-->
         <!--
         <div class="ui-message ui-messages-error"
           *ngIf="description.hasError('required') && description.dirty">
