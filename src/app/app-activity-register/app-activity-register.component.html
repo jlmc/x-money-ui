@@ -7,13 +7,15 @@
         <h1>New Activity</h1>
       </div>
 
-
-      <div class="ui-g-6 ui-md-3 ui-fluid">
-
-        <p-selectButton [options]="types" #mytype></p-selectButton>
-
+      <div class="ui-g-12 ui-md-12 ui-fluid">
+        <div class="ui-g-6 ui-md-3 ui-fluid">
+          <p-selectButton [options]="types" #mytype></p-selectButton>
+        </div>
       </div>
+      <!--
 
+
+     -->
 
       <div class="ui-g-6 ui-md-3 ui-fluid">
         <label>Maturity</label>
@@ -47,7 +49,7 @@
         <p-dropdown [options]="categories" placeholder="Select one..."
                     [autoWidth]="false" #mycategody></p-dropdown>
 
-       <!-- <input pInputText type="text">-->
+        <!-- <input pInputText type="text">-->
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
