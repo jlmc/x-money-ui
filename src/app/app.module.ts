@@ -23,6 +23,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CurrencyMaskModule} from 'ng2-currency-mask';
 import {AppPersonRegisterComponent} from './app-person-register/app-person-register.component';
 import {FormsModule} from '@angular/forms';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {FormsModule} from '@angular/forms';
     AppNavBarComponent,
     AppPersonsSearchComponent,
     AppActivityRegisterComponent,
-    AppPersonRegisterComponent
+    AppPersonRegisterComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule
