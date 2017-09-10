@@ -6,6 +6,15 @@ body {
   color: #404C51;
 }
 
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
 label {
   font-weight: bold;
 }
@@ -39,4 +48,8 @@ label {
 .col-code {
   width: 90px;
   text-align: right;
+}
+
+.ui-dropdown-filter-container {
+  width: 100%;
 }

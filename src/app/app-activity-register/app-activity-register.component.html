@@ -1,0 +1,81 @@
+<div class="container">
+  <form>
+
+    <div class="ui-g">
+
+      <div class="ui-g-12">
+        <h1>New Activity</h1>
+      </div>
+
+      <div class="ui-g-12 ui-md-12 ui-fluid">
+        <div class="ui-g-6 ui-md-3 ui-fluid">
+          <p-selectButton [options]="types" #mytype></p-selectButton>
+        </div>
+      </div>
+      <!--
+
+
+     -->
+
+      <div class="ui-g-6 ui-md-3 ui-fluid">
+        <label>Maturity</label>
+
+        <p-calendar dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="true" [showIcon]="true"></p-calendar>
+        <!--
+        <input pInputText type="text">
+        -->
+      </div>
+
+      <div class="ui-g-6 ui-md-3 ui-fluid">
+        <!--<label>Receiving</label>-->
+        <label>{{ mytype.value === 'RECIPE' ? 'Recipe' : 'Expense'}}</label>
+
+        <p-calendar dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="true" [showIcon]="true"></p-calendar>
+        <!--
+        <input pInputText type="text">
+        -->
+      </div>
+
+      <div class="ui-g-12 ui-md-3 ui-fluid">
+        <label>Value</label>
+        <input pInputText type="text" placeholder="0,00"
+               [options]="{ prefix: '€ ', thousands: '.', decimal: ',', allowNegative: false }"
+               currencyMask>
+      </div>
+
+      <div class="ui-g-12 ui-md-6 ui-fluid">
+        <label>Category</label>
+
+        <p-dropdown [options]="categories" placeholder="Select one..."
+                    [autoWidth]="false" #mycategody></p-dropdown>
+
+        <!-- <input pInputText type="text">-->
+      </div>
+
+      <div class="ui-g-12 ui-md-6 ui-fluid">
+        <label>Person</label>
+
+        <p-dropdown [options]="persons" placeholder="Select one..."
+                    [autoWidth]="false" [filter]="true" #myPerson></p-dropdown>
+
+        <!--
+        <input pInputText type="text">-->
+      </div>
+
+      <div class="ui-g-12 ui-fluid">
+        <label>Observation</label>
+        <textarea pInputTextarea rows="3"></textarea>
+      </div>
+
+
+      <div class="ui-g-12">
+        <button pButton type="submit" label="Save"></button>
+        <button pButton type="button" label="New" class="ui-button-info"></button>
+        <a href="javascript:;">Back to Search</a>
+      </div>
+
+
+    </div>
+
+  </form>
+</div>
