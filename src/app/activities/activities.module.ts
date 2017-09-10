@@ -2,16 +2,23 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {AppActivitiesSearchComponent} from './app-activities-search/app-activities-search.component';
 import {AppActivityRegisterComponent} from './app-activity-register/app-activity-register.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 import {
-  ButtonModule, CalendarModule, DataTableModule, DropdownModule, InputMaskModule, InputTextModule, SelectButtonModule,
+  ButtonModule,
+  CalendarModule,
+  DataTableModule,
+  DropdownModule,
+  InputMaskModule,
+  InputTextModule,
+  SelectButtonModule,
   SharedModule,
   TabViewModule,
   TooltipModule
-} from "primeng/primeng";
-import {InputTextareaModule} from "primeng/components/inputtextarea/inputtextarea";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {CurrencyMaskModule} from "ng2-currency-mask";
+} from 'primeng/primeng';
+import {InputTextareaModule} from 'primeng/components/inputtextarea/inputtextarea';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CurrencyMaskModule} from 'ng2-currency-mask';
+import {SharedModule as AppSharedModule} from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -30,6 +37,7 @@ import {CurrencyMaskModule} from "ng2-currency-mask";
     , DropdownModule
     , InputMaskModule
     , CurrencyMaskModule
+    , AppSharedModule
   ],
   declarations: [
     AppActivitiesSearchComponent, AppActivityRegisterComponent

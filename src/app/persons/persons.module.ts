@@ -6,7 +6,6 @@ import {
   InputMaskModule,
   InputTextareaModule,
   SelectButtonModule,
-  SharedModule,
   TabViewModule,
   TooltipModule
 } from 'primeng/primeng';
@@ -18,21 +17,20 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CurrencyMaskModule} from 'ng2-currency-mask';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {AppPersonGridComponent} from "./app-person-grid/app-person-grid.component";
-import {AppPersonRegisterComponent} from "./app-person-register/app-person-register.component";
-import {AppPersonsSearchComponent} from "./app-persons-search/app-persons-search.component";
+import {AppPersonGridComponent} from './app-person-grid/app-person-grid.component';
+import {AppPersonRegisterComponent} from './app-person-register/app-person-register.component';
+import {AppPersonsSearchComponent} from './app-persons-search/app-persons-search.component';
+import {SharedModule} from '../shared/shared.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    SharedModule
+    FormsModule
     , TabViewModule
     , InputTextModule
     , ButtonModule
     , DataTableModule
-    , SharedModule
     , TooltipModule
     , InputTextareaModule
     , CalendarModule
@@ -41,6 +39,9 @@ import {AppPersonsSearchComponent} from "./app-persons-search/app-persons-search
     , DropdownModule
     , InputMaskModule
     , CurrencyMaskModule
+
+
+    , SharedModule
 
 
   ],
