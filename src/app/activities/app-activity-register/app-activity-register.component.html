@@ -1,0 +1,116 @@
+<div class="container">
+
+  <form #f="ngForm" autocomplete="off">
+
+    <div class="ui-g">
+
+      <div class="ui-g-12">
+        <h1>New Activity</h1>
+      </div>
+
+      <div class="ui-g-12 ui-md-12 ui-fluid">
+        <div class="ui-g-6 ui-md-3 ui-fluid">
+          <p-selectButton [options]="types" #mytype></p-selectButton>
+        </div>
+      </div>
+
+      <div class="ui-g-6 ui-md-3 ui-fluid">
+        <label>Maturity</label>
+
+        <p-calendar dateFormat="dd/mm/yy"
+                    [inline]="false"
+                    [readonlyInput]="true"
+                    [showIcon]="true"
+                    name="maturity" ngModel #maturity="ngModel" required></p-calendar>
+        <!--
+        <input pInputText type="text">
+        -->
+        <app-message [control]="maturity" error="required" text="The maturity date should be entered."></app-message>
+
+      </div>
+
+      <div class="ui-g-6 ui-md-3 ui-fluid">
+        <label>{{ mytype.value === 'RECIPE' ? 'Recipe' : 'Expense'}}</label>
+
+        <p-calendar dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="true" [showIcon]="true"></p-calendar>
+        <!--
+        <input pInputText type="text">
+        -->
+      </div>
+
+      <div class="ui-g-12 ui-md-9 ui-fluid">
+        <label>Description {{description.errors | json}}</label>
+
+        <input pInputText type="text" name="drscription"
+               ngModel #description="ngModel" required minlength="5">
+
+        <app-message [control]="description"
+                     error="required"
+                     text="The description is required"></app-message>
+
+        <app-message [control]="description"
+                error="minlength"
+                text="Minimum of {{description.errors?.minlength?.requiredLength }} characters, you only wrote {{description.errors?.minlength?.actualLength}}"></app-message>
+
+        <!--
+        <div class="ui-message ui-messages-error"
+          *ngIf="description.hasError('required') && description.dirty">
+          The description is required.
+        </div>
+
+        <div class="ui-message ui-messages-error"
+             *ngIf="description.hasError('minlength') && description.dirty">
+          Minimum of {{description.errors.minlength.requiredLength }} characters, you only wrote {{description.errors.minlength.actualLength}}
+        </div>
+        -->
+      </div>
+
+
+      <div class="ui-g-12 ui-md-3 ui-fluid">
+        <label>Value</label>
+        <input pInputText type="text" placeholder="0,00"
+               [options]="{ prefix: '€ ', thousands: '.', decimal: ',', allowNegative: false }"
+               currencyMask name="value" ngModel>
+      </div>
+
+
+
+
+      <div class="ui-g-12 ui-md-6 ui-fluid">
+        <label>Category</label>
+
+        <p-dropdown [options]="categories" placeholder="Select one..."
+                    [autoWidth]="false" #mycategody
+                    required></p-dropdown>
+
+        <!-- <input pInputText type="text">-->
+      </div>
+
+      <div class="ui-g-12 ui-md-6 ui-fluid">
+        <label>Person</label>
+
+        <p-dropdown [options]="persons" placeholder="Select one..."
+                    [autoWidth]="false" [filter]="true" #myPerson
+                    required></p-dropdown>
+
+        <!--
+        <input pInputText type="text">-->
+      </div>
+
+      <div class="ui-g-12 ui-fluid">
+        <label>Observation</label>
+        <textarea pInputTextarea rows="3"></textarea>
+      </div>
+
+
+      <div class="ui-g-12">
+        <button pButton type="submit" label="Save" [disabled]="f.invalid"></button>
+        <button pButton type="button" label="New" class="ui-button-info"></button>
+        <a href="javascript:;">Back to Search</a>
+      </div>
+
+
+    </div>
+
+  </form>
+</div>

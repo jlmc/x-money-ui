@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
-import {SelectItem} from "primeng/primeng";
+import {SelectItem} from 'primeng/primeng';
 
 @Component({
-  selector: 'app-app-person-register',
+  selector: 'app-person-register',
   templateUrl: './app-person-register.component.html',
   styleUrls: ['./app-person-register.component.css']
 })
