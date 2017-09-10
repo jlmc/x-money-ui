@@ -1,5 +1,6 @@
 <div class="container">
-  <form>
+
+  <form autocomplete="off">
 
     <div class="ui-g">
 
@@ -12,22 +13,20 @@
           <p-selectButton [options]="types" #mytype></p-selectButton>
         </div>
       </div>
-      <!--
-
-
-     -->
 
       <div class="ui-g-6 ui-md-3 ui-fluid">
         <label>Maturity</label>
 
-        <p-calendar dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="true" [showIcon]="true"></p-calendar>
+        <p-calendar dateFormat="dd/mm/yy"
+                    [inline]="false"
+                    [readonlyInput]="true"
+                    [showIcon]="true"></p-calendar>
         <!--
         <input pInputText type="text">
         -->
       </div>
 
       <div class="ui-g-6 ui-md-3 ui-fluid">
-        <!--<label>Receiving</label>-->
         <label>{{ mytype.value === 'RECIPE' ? 'Recipe' : 'Expense'}}</label>
 
         <p-calendar dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="true" [showIcon]="true"></p-calendar>
@@ -36,12 +35,34 @@
         -->
       </div>
 
+      <div class="ui-g-12 ui-md-9 ui-fluid">
+        <label>Description {{description.errors | json}}</label>
+
+        <input pInputText type="text" name="drscription"
+               ngModel #description="ngModel" required minlength="5">
+
+        <div class="ui-message ui-messages-error"
+          *ngIf="description.hasError('required') && description.dirty">
+          The description is required.
+        </div>
+
+        <div class="ui-message ui-messages-error"
+             *ngIf="description.hasError('minlength') && description.dirty">
+          Minimum of {{description.errors.minlength.requiredLength }} characters, you only wrote {{description.errors.minlength.actualLength}}
+        </div>
+
+      </div>
+
+
       <div class="ui-g-12 ui-md-3 ui-fluid">
         <label>Value</label>
         <input pInputText type="text" placeholder="0,00"
                [options]="{ prefix: '€ ', thousands: '.', decimal: ',', allowNegative: false }"
-               currencyMask>
+               currencyMask name="value" ngModel>
       </div>
+
+
+
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Category</label>
