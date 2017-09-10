@@ -24,6 +24,7 @@ import {CurrencyMaskModule} from 'ng2-currency-mask';
 import {AppPersonRegisterComponent} from './app-person-register/app-person-register.component';
 import {FormsModule} from '@angular/forms';
 import { MessageComponent } from './message/message.component';
+import { AppPersonGridComponent } from './app-person-grid/app-person-grid.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MessageComponent } from './message/message.component';
     AppPersonsSearchComponent,
     AppActivityRegisterComponent,
     AppPersonRegisterComponent,
-    MessageComponent
+    MessageComponent,
+    AppPersonGridComponent
   ],
   imports: [
     BrowserModule
