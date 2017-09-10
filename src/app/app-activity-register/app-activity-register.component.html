@@ -1,6 +1,6 @@
 <div class="container">
 
-  <form autocomplete="off">
+  <form #f="ngForm" autocomplete="off">
 
     <div class="ui-g">
 
@@ -20,10 +20,13 @@
         <p-calendar dateFormat="dd/mm/yy"
                     [inline]="false"
                     [readonlyInput]="true"
-                    [showIcon]="true"></p-calendar>
+                    [showIcon]="true"
+                    name="maturity" ngModel #maturity="ngModel" required></p-calendar>
         <!--
         <input pInputText type="text">
         -->
+        <app-message [control]="maturity" error="required" text="The maturity date should be entered."></app-message>
+
       </div>
 
       <div class="ui-g-6 ui-md-3 ui-fluid">
@@ -77,7 +80,8 @@
         <label>Category</label>
 
         <p-dropdown [options]="categories" placeholder="Select one..."
-                    [autoWidth]="false" #mycategody></p-dropdown>
+                    [autoWidth]="false" #mycategody
+                    required></p-dropdown>
 
         <!-- <input pInputText type="text">-->
       </div>
@@ -86,7 +90,8 @@
         <label>Person</label>
 
         <p-dropdown [options]="persons" placeholder="Select one..."
-                    [autoWidth]="false" [filter]="true" #myPerson></p-dropdown>
+                    [autoWidth]="false" [filter]="true" #myPerson
+                    required></p-dropdown>
 
         <!--
         <input pInputText type="text">-->
@@ -99,7 +104,7 @@
 
 
       <div class="ui-g-12">
-        <button pButton type="submit" label="Save"></button>
+        <button pButton type="submit" label="Save" [disabled]="f.invalid"></button>
         <button pButton type="button" label="New" class="ui-button-info"></button>
         <a href="javascript:;">Back to Search</a>
       </div>
