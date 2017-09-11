@@ -46,7 +46,8 @@ import {PersonService} from "./PersonService";
 
   ],
   providers: [
-    PersonService
+    PersonService,
+    {provide: 'myLogPrefix', useValue: 'LOG'}
   ],
   declarations: [AppPersonGridComponent, AppPersonRegisterComponent, AppPersonsSearchComponent],
   exports: [AppPersonsSearchComponent, AppPersonRegisterComponent]
