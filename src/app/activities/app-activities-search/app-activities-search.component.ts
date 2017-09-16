@@ -10,6 +10,8 @@ export class AppActivitiesSearchComponent implements OnInit {
 
   activities = [];
 
+  description: string;
+
   constructor(private activityService: ActivityService ) {}
 
   ngOnInit(): void {
@@ -17,8 +19,9 @@ export class AppActivitiesSearchComponent implements OnInit {
   }
 
 
-  private search() {
-    this.activityService.search().then(b => this.activities = b);
+  search() {
+    this.activityService.search({description: this.description})
+      .then(b => this.activities = b);
   }
 
   /*[

@@ -1,6 +1,11 @@
-import { Injectable } from '@angular/core';
-import {Http, Headers} from '@angular/http';
+import {Injectable} from '@angular/core';
+import {Headers, Http, URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+
+export interface ActivityFilter {
+  description: string
+}
+
 
 @Injectable()
 export class ActivityService {
@@ -9,14 +14,28 @@ export class ActivityService {
 
   constructor(private http: Http) { }
 
+  search(filter: ActivityFilter): Promise<any> {
+    const params = new URLSearchParams();
 
-  search(): Promise<any> {
+
 
     const headers = new Headers();
+
+    if (filter.description) {
+
+      alert(`Desc: ${JSON.stringify(filter)}`)
+
+      params.set('description', filter.description);
+    }
+
+
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
-    return this.http.get(`${this.url}?summary`, { headers })
+    return this.http.get(`${this.url}?summary`, { headers, search: params })
       .toPromise()
-      .then(response => response.json().content);
+      .then(response => {
+        console.log('result:: ' + response.json().content);
+        return response.json().content;
+      });
   }
 
 }
