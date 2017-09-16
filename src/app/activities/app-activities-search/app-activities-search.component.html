@@ -14,10 +14,19 @@
 
       <div class="ui-g-12">
         <label style="display: block">Due date</label>
-        <input pInputText type="text" style="width: 95px">
+
+        <p-calendar dateFormat="dd/mm/yy" [inputStyle]="{ width: '95px' }"
+                    name="dueStartDate" [(ngModel)]="dueStartDate"></p-calendar>
+        <!--
+        <input pInputText type="text" style="width: 95px" name="dueDate" [(ngModel)]="dueDate">-->
 
         <label>to</label>
-        <input pInputText type="text" style="width: 95px">
+        <!--
+        <input pInputText type="text" style="width: 95px">-->
+
+        <p-calendar dateFormat="dd/mm/yy" [inputStyle]="{ width: '95px' }"
+                    name="dueEndDate" [(ngModel)]="dueEndDate"></p-calendar>
+
       </div>
 
       <div class="ui-g-12">

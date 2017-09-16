@@ -1,9 +1,13 @@
 import {Injectable} from '@angular/core';
 import {Headers, Http, URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import * as moment from 'moment';
 
 export interface ActivityFilter {
-  description: string
+  description: string;
+  dueStartDate: Date;
+  dueEndDate: Date;
+
 }
 
 
@@ -16,18 +20,19 @@ export class ActivityService {
 
   search(filter: ActivityFilter): Promise<any> {
     const params = new URLSearchParams();
-
-
-
     const headers = new Headers();
 
     if (filter.description) {
-
-      alert(`Desc: ${JSON.stringify(filter)}`)
-
       params.set('description', filter.description);
     }
 
+    if (filter.dueStartDate) {
+      params.set('maturityFrom',  moment(filter.dueStartDate).format('YYYY-MM-DD'));
+    }
+
+    if (filter.dueEndDate) {
+      params.set('maturityTo', moment(filter.dueEndDate).format('YYYY-MM-DD'));
+    }
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
     return this.http.get(`${this.url}?summary`, { headers, search: params })

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivityService} from '../activity.service';
+import {ActivityFilter, ActivityService} from '../activity.service';
 
 @Component({
   selector: 'app-activities-search',
@@ -11,6 +11,8 @@ export class AppActivitiesSearchComponent implements OnInit {
   activities = [];
 
   description: string;
+  dueStartDate: Date;
+  dueEndDate: Date;
 
   constructor(private activityService: ActivityService ) {}
 
@@ -20,7 +22,14 @@ export class AppActivitiesSearchComponent implements OnInit {
 
 
   search() {
-    this.activityService.search({description: this.description})
+
+    const filter: ActivityFilter = {
+      description: this.description,
+      dueStartDate: this.dueStartDate,
+      dueEndDate: this.dueEndDate
+    };
+
+    this.activityService.search(filter)
       .then(b => this.activities = b);
   }
 
