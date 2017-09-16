@@ -19,6 +19,7 @@ import {InputTextareaModule} from 'primeng/components/inputtextarea/inputtextare
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CurrencyMaskModule} from 'ng2-currency-mask';
 import {SharedModule as AppSharedModule} from '../shared/shared.module';
+import {ActivityService} from "./activity.service";
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import {SharedModule as AppSharedModule} from '../shared/shared.module';
     , CurrencyMaskModule
     , AppSharedModule
   ],
+  providers: [ActivityService],
   declarations: [
     AppActivitiesSearchComponent, AppActivityRegisterComponent
   ],
