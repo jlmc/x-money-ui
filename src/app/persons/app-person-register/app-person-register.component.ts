@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {SelectItem} from 'primeng/primeng';
-import {PersonService} from "../PersonService";
 
 @Component({
   selector: 'app-person-register',
@@ -14,14 +13,13 @@ export class AppPersonRegisterComponent {
 
   val: string;
 
-  constructor(private personService: PersonService) {
+  constructor() {
     this.status = [];
     this.status.push({label: 'Active', value: true});
     this.status.push({label: 'Inactive', value: false});
   }
 
   createPerson() {
-    this.personService.log('creting ' + new Date());
   }
 
 }

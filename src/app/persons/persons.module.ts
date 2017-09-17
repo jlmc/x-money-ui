@@ -21,7 +21,6 @@ import {AppPersonGridComponent} from './app-person-grid/app-person-grid.componen
 import {AppPersonRegisterComponent} from './app-person-register/app-person-register.component';
 import {AppPersonsSearchComponent} from './app-persons-search/app-persons-search.component';
 import {SharedModule} from '../shared/shared.module';
-import {PersonService} from "./PersonService";
 
 @NgModule({
   imports: [
@@ -45,10 +44,7 @@ import {PersonService} from "./PersonService";
 
 
   ],
-  providers: [
-    PersonService,
-    {provide: 'myLogPrefix', useValue: 'LOG'}
-  ],
+  providers: [],
   declarations: [AppPersonGridComponent, AppPersonRegisterComponent, AppPersonsSearchComponent],
   exports: [AppPersonsSearchComponent, AppPersonRegisterComponent]
 })
