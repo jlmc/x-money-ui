@@ -36,8 +36,16 @@
     <div class="ui-g-12">
 
       <p-dataTable [value]="activities"
-                   [paginator]="true" [rows]="10"
-                   [responsive]="true">
+                   [responsive]="true"
+
+                   [paginator]="true"
+                   [rows]="filter.size"
+                   [lazy]="true"
+                   [totalRecords]="totalActivities"
+                   (onLazyLoad)="onPageChange($event)">
+
+
+
         <p-column field="code"  header="Code" styleClass="col-code"></p-column>
         <p-column field="description"  header="Description"></p-column>
         <p-column field="observation"  header="Observation"></p-column>

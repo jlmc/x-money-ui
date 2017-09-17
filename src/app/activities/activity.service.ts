@@ -9,7 +9,7 @@ export class ActivityFilter {
   dueEndDate: Date;
 
   page = 0;
-  size = 5;
+  size = 1;
 }
 
 export interface ActivitySearchPage {
