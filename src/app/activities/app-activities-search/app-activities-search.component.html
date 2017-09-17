@@ -9,23 +9,17 @@
 
       <div class="ui-g-12 ui-fluid">
         <label>Descrição</label>
-        <input pInputText type="text" name="description" [(ngModel)]="description">
+        <input pInputText type="text" name="description" [(ngModel)]="filter.description">
       </div>
 
       <div class="ui-g-12">
         <label style="display: block">Due date</label>
-
         <p-calendar dateFormat="dd/mm/yy" [inputStyle]="{ width: '95px' }"
-                    name="dueStartDate" [(ngModel)]="dueStartDate"></p-calendar>
-        <!--
-        <input pInputText type="text" style="width: 95px" name="dueDate" [(ngModel)]="dueDate">-->
+                    name="dueStartDate" [(ngModel)]="filter.dueStartDate"></p-calendar>
 
         <label>to</label>
-        <!--
-        <input pInputText type="text" style="width: 95px">-->
-
         <p-calendar dateFormat="dd/mm/yy" [inputStyle]="{ width: '95px' }"
-                    name="dueEndDate" [(ngModel)]="dueEndDate"></p-calendar>
+                    name="dueEndDate" [(ngModel)]="filter.dueEndDate"></p-calendar>
 
       </div>
 
