@@ -1,43 +1,40 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivityFilter, ActivityService} from '../activity.service';
+import {LazyLoadEvent} from 'primeng/components/common/api';
 
 @Component({
   selector: 'app-activities-search',
   templateUrl: './app-activities-search.component.html',
   styleUrls: ['./app-activities-search.component.css']
 })
-export class AppActivitiesSearchComponent {
+export class AppActivitiesSearchComponent implements OnInit {
 
-  activities = [
-    {
-      code: 1234,
-      description: 'abcde',
-      observation: 'this is dummmt',
-      payday: new Date(2017, 8, 15),
-      maturity: new Date(2017, 8, 15),
-      value: 4567.98,
-      type: 'EXPENSE',
-      category: {
-        code: 1
-      },
-      person: {
-        name: 'Alvaro Morata'
-      }
-    },
-    {
-      code: 3456,
-      description: 'tipo gtyu',
-      observation: 'this is dummmt',
-      payday: new Date('2017/12/01'),
-      maturity: new Date(2017, 1, 1),
-      value: 4567.98,
-      type: 'EXPENSE',
-      category: {
-        code: 1
-      },
-      person: {
-        name: 'Diego Maradona'
-      }
-    }
-  ];
+  activities = [];
+  totalActivities = 0;
+
+  filter: ActivityFilter = new ActivityFilter();
+
+  constructor(private activityService: ActivityService ) {}
+
+  ngOnInit(): void {
+    // this.search();
+  }
+
+  search(page = 0) {
+
+    this.filter.page = page;
+
+    this.activityService.search(this.filter)
+      .then(b => {
+        this.activities = b.activities;
+        this.totalActivities = b.totalElements;
+      });
+  }
+
+  onPageChange(event: LazyLoadEvent) {
+    const page = event.first / event.rows;
+    this.search(page);
+  }
+
 
 }

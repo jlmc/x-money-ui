@@ -8,6 +8,7 @@ import {SelectItem} from 'primeng/primeng';
 })
 export class AppPersonRegisterComponent {
 
+
   status: SelectItem[];
 
   val: string;
@@ -16,6 +17,9 @@ export class AppPersonRegisterComponent {
     this.status = [];
     this.status.push({label: 'Active', value: true});
     this.status.push({label: 'Inactive', value: false});
+  }
+
+  createPerson() {
   }
 
 }

@@ -22,7 +22,6 @@ import {AppPersonRegisterComponent} from './app-person-register/app-person-regis
 import {AppPersonsSearchComponent} from './app-persons-search/app-persons-search.component';
 import {SharedModule} from '../shared/shared.module';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -45,6 +44,7 @@ import {SharedModule} from '../shared/shared.module';
 
 
   ],
+  providers: [],
   declarations: [AppPersonGridComponent, AppPersonRegisterComponent, AppPersonsSearchComponent],
   exports: [AppPersonsSearchComponent, AppPersonRegisterComponent]
 })

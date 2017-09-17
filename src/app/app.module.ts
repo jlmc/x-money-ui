@@ -6,6 +6,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PersonsModule} from './persons/persons.module';
 import {ActivitiesModule} from './activities/activities.module';
 import {CoreModule} from './core/core.module';
+import {HttpModule} from '@angular/http';
 // acording the PrimeNG documentation it could be better import the compoments one by one
 // import {InputTextModule} from 'primeng/components/inputtext/inputtext';
 
@@ -21,6 +22,9 @@ import {CoreModule} from './core/core.module';
     , PersonsModule
     , ActivitiesModule
     , CoreModule
+
+    , HttpModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

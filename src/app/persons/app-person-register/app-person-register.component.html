@@ -43,7 +43,7 @@
 
 
       <div class="ui-g-12">
-        <button pButton type="submit" label="Save"  [disabled]="f.invalid"></button>
+        <button pButton type="submit" label="Save"  [disabled]="f.invalid" (click)="createPerson()"></button>
         <button pButton type="button" label="New" class="ui-button-info"></button>
         <a href="javascript:;">Back to Search</a>
       </div>

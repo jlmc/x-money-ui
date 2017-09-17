@@ -1,26 +1,33 @@
 <div class="container">
   <div class="ui-g">
 
-    <div class="ui-g-12">
-      <h1>Activities</h1>
-    </div>
+    <form autocomplete="off" (ngSubmit)="search()">
 
-    <div class="ui-g-12 ui-fluid">
-      <label>Descrição</label>
-      <input pInputText type="text">
-    </div>
+      <div class="ui-g-12">
+        <h1>Activities</h1>
+      </div>
 
-    <div class="ui-g-12">
-      <label style="display: block">Due date</label>
-      <input pInputText type="text" style="width: 95px">
+      <div class="ui-g-12 ui-fluid">
+        <label>Descrição</label>
+        <input pInputText type="text" name="description" [(ngModel)]="filter.description">
+      </div>
 
-      <label>to</label>
-      <input pInputText type="text" style="width: 95px">
-    </div>
+      <div class="ui-g-12">
+        <label style="display: block">Due date</label>
+        <p-calendar dateFormat="dd/mm/yy" [inputStyle]="{ width: '95px' }"
+                    name="dueStartDate" [(ngModel)]="filter.dueStartDate"></p-calendar>
 
-    <div class="ui-g-12">
-      <button pButton type="submit" label="Search"></button>
-    </div>
+        <label>to</label>
+        <p-calendar dateFormat="dd/mm/yy" [inputStyle]="{ width: '95px' }"
+                    name="dueEndDate" [(ngModel)]="filter.dueEndDate"></p-calendar>
+
+      </div>
+
+      <div class="ui-g-12">
+        <button pButton type="submit" label="Search"></button>
+      </div>
+
+    </form>
 
   </div>
 
@@ -29,8 +36,16 @@
     <div class="ui-g-12">
 
       <p-dataTable [value]="activities"
-                   [paginator]="true" [rows]="10"
-                   [responsive]="true">
+                   [responsive]="true"
+
+                   [paginator]="true"
+                   [rows]="filter.size"
+                   [lazy]="true"
+                   [totalRecords]="totalActivities"
+                   (onLazyLoad)="onPageChange($event)">
+
+
+
         <p-column field="code"  header="Code" styleClass="col-code"></p-column>
         <p-column field="description"  header="Description"></p-column>
         <p-column field="observation"  header="Observation"></p-column>
@@ -42,7 +57,7 @@
         </p-column>
 
         <!--<p-column field="value" header="Value" styleClass="cal-value"></p-column>-->
-        <p-column field="person.name" header="Person"></p-column>
+        <p-column field="personName" header="Person"></p-column>
 
 
         <p-column field="value" header="Value" styleClass="cal-value">
