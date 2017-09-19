@@ -43,7 +43,11 @@ export class AppActivitiesSearchComponent implements OnInit {
     this.activityService.delete(activity.code).then(() => {
       // this.activityService.search(this.filter);
       // we don't need the search method because by reset the grid paginantion we are going to execute the lazy load
-      this.activitiesGrid.first = 0;
+      if (this.activitiesGrid.first === 0) {
+        this.search();
+      } else {
+        this.activitiesGrid.first = 0;
+      }
     });
   }
 
