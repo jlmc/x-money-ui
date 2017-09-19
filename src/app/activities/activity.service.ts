@@ -77,4 +77,12 @@ export class ActivityService {
       });
   }
 
+  delete (code: string): Promise<void> {
+    const headers = new Headers();
+    headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+    return this.http.delete(`${this.url}/${code}`, { headers })
+      .toPromise()
+      .then(respinse => null);
+  }
+
 }
