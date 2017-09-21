@@ -1,6 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {ActivityFilter, ActivityService} from '../activity.service';
+
 import {LazyLoadEvent} from 'primeng/components/common/api';
+import { ToastyService } from 'ng2-toasty';
+
+import {ActivityFilter, ActivityService} from '../activity.service';
 
 @Component({
   selector: 'app-activities-search',
@@ -16,7 +19,9 @@ export class AppActivitiesSearchComponent implements OnInit {
 
   @ViewChild('activitiesTable') activitiesGrid;
 
-  constructor(private activityService: ActivityService ) {}
+  constructor(
+    private activityService: ActivityService,
+    private toasty: ToastyService) {}
 
   ngOnInit(): void {
     // this.search();
@@ -48,6 +53,10 @@ export class AppActivitiesSearchComponent implements OnInit {
       } else {
         this.activitiesGrid.first = 0;
       }
+
+      // add message to display notification
+      this.toasty.success('Activity deleted successfully!');
+
     });
   }
 

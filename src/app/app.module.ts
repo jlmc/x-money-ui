@@ -7,6 +7,8 @@ import {PersonsModule} from './persons/persons.module';
 import {ActivitiesModule} from './activities/activities.module';
 import {CoreModule} from './core/core.module';
 import {HttpModule} from '@angular/http';
+
+import { ToastyModule } from 'ng2-toasty';
 // acording the PrimeNG documentation it could be better import the compoments one by one
 // import {InputTextModule} from 'primeng/components/inputtext/inputtext';
 
@@ -18,13 +20,13 @@ import {HttpModule} from '@angular/http';
   imports: [
     BrowserModule
     , BrowserAnimationsModule
-
-    , PersonsModule
-    , ActivitiesModule
-    , CoreModule
-
     , HttpModule
 
+    , ToastyModule.forRoot()
+
+    , CoreModule
+    , PersonsModule
+    , ActivitiesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
