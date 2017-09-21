@@ -21,6 +21,7 @@ import {AppPersonGridComponent} from './app-person-grid/app-person-grid.componen
 import {AppPersonRegisterComponent} from './app-person-register/app-person-register.component';
 import {AppPersonsSearchComponent} from './app-persons-search/app-persons-search.component';
 import {SharedModule} from '../shared/shared.module';
+import {PersonsService} from './persons.service';
 
 @NgModule({
   imports: [
@@ -39,12 +40,9 @@ import {SharedModule} from '../shared/shared.module';
     , InputMaskModule
     , CurrencyMaskModule
 
-
     , SharedModule
-
-
   ],
-  providers: [],
+  providers: [PersonsService],
   declarations: [AppPersonGridComponent, AppPersonRegisterComponent, AppPersonsSearchComponent],
   exports: [AppPersonsSearchComponent, AppPersonRegisterComponent]
 })

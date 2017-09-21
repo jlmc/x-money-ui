@@ -42,7 +42,8 @@
                    [rows]="filter.size"
                    [lazy]="true"
                    [totalRecords]="totalActivities"
-                   (onLazyLoad)="onPageChange($event)">
+                   (onLazyLoad)="onPageChange($event)"
+                    #activitiesTable>
 
 
 
@@ -67,13 +68,12 @@
         </p-column>
 
         <p-column styleClass="col-actions">
-          <ng-template pTemplate="body">
+          <ng-template pTemplate="body" let-lanc="rowData">
             <a pButton icon="fa-pencil" pTooltip="Edit" tooltipPosition="top"></a>
-            <button pButton icon="fa-trash" pTooltip="Remove" tooltipPosition="bottom"></button>
+            <button pButton icon="fa-trash" pTooltip="Remove" tooltipPosition="bottom"
+                    (click)="delete(lanc)"></button>
           </ng-template>
         </p-column>
-
-
 
       </p-dataTable>
 
