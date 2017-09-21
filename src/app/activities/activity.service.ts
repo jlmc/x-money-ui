@@ -82,7 +82,7 @@ export class ActivityService {
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
     return this.http.delete(`${this.url}/${code}`, { headers })
       .toPromise()
-      .then(respinse => null);
+      .then(result => null);
   }
 
 }

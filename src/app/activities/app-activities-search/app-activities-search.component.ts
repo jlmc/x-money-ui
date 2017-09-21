@@ -14,7 +14,7 @@ export class AppActivitiesSearchComponent implements OnInit {
 
   filter: ActivityFilter = new ActivityFilter();
 
-  @ViewChild('activitieTable') activitiesGrid;
+  @ViewChild('activitiesTable') activitiesGrid;
 
   constructor(private activityService: ActivityService ) {}
 
