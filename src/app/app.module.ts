@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, LOCALE_ID} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpModule} from '@angular/http';
 
@@ -37,6 +37,8 @@ import {CoreModule} from './core/core.module';
   ],
   providers: [
     ConfirmationService
+    , { provide: LOCALE_ID, useValue: 'en-US' }
+
   ],
   bootstrap: [AppComponent]
 })
