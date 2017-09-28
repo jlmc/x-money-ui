@@ -1,9 +1,10 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
-import {LazyLoadEvent} from 'primeng/components/common/api';
+import { LazyLoadEvent } from 'primeng/components/common/api';
+import { ConfirmationService } from 'primeng/primeng';
 import { ToastyService } from 'ng2-toasty';
 
-import {ActivityFilter, ActivityService} from '../activity.service';
+import { ActivityFilter, ActivityService } from '../activity.service';
 
 @Component({
   selector: 'app-activities-search',
@@ -21,11 +22,10 @@ export class AppActivitiesSearchComponent implements OnInit {
 
   constructor(
     private activityService: ActivityService,
-    private toasty: ToastyService) {}
+    private toasty: ToastyService,
+    private confirmationService: ConfirmationService) {}
 
-  ngOnInit(): void {
-    // this.search();
-  }
+  ngOnInit(): void {}
 
   search(page = 0) {
 
@@ -44,6 +44,18 @@ export class AppActivitiesSearchComponent implements OnInit {
   }
 
   delete (activity: any) {
+    console.log(JSON.stringify(activity));
+    this.confirmationService.confirm({
+      header: 'Delete Confirmation',
+      icon: 'fa fa-trash',
+      message: 'Do you want to delete this record?',
+      accept: () => {
+        this.onConfirmDelete(activity);
+      }
+    });
+  }
+
+  onConfirmDelete(activity) {
     console.log(JSON.stringify(activity));
     this.activityService.delete(activity.code).then(() => {
       // this.activityService.search(this.filter);
